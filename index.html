@@ -52,7 +52,7 @@
             <div class="tarjeta-icono">💬</div>
             <h3>Un mensaje</h3>
             <p>Pegá el texto que te llegó por WhatsApp, SMS o correo.</p>
-            <button class="boton" disabled>Próximamente</button>
+           <a href="#analizar-mensaje" class="boton">Revisar un mensaje</a>
           </article>
 
           <article class="tarjeta">
@@ -72,7 +72,28 @@
         </div>
       </div>
     </section>
+    <!-- ANALIZADOR DE MENSAJES -->
+    <section id="analizar-mensaje" class="seccion seccion-clara">
+      <div class="contenedor contenedor-angosto">
+        <h2>Revisar un mensaje</h2>
+        <p>
+          Pegá acá el texto completo del mensaje que recibiste. Se revisa en tu
+          propio dispositivo: no se envía ni se guarda en ningún lado.
+        </p>
 
+        <label for="texto-mensaje" class="etiqueta">Texto del mensaje</label>
+        <textarea id="texto-mensaje" rows="8"
+                  placeholder="Pegá acá el mensaje que recibiste..."></textarea>
+
+        <div class="acciones">
+          <button type="button" id="boton-revisar" class="boton">Revisar mensaje</button>
+          <button type="button" id="boton-ejemplo" class="boton boton-secundario">Probar con un ejemplo</button>
+          <button type="button" id="boton-borrar" class="boton boton-secundario">Borrar</button>
+        </div>
+
+        <div id="resultado-mensaje" class="resultado" tabindex="-1" hidden></div>
+      </div>
+    </section>
     <!-- EDUCACIÓN: sección para aprender -->
     <section id="aprender" class="seccion seccion-clara">
       <div class="contenedor">
@@ -112,6 +133,7 @@
 
     </div>
   </footer>
+  <script src="js/analizador-mensajes.js"></script>
 
 </body>
 </html>

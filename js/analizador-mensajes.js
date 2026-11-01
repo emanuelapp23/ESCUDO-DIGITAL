@@ -15,7 +15,12 @@
    Para agregar una regla nueva, copiá un bloque entero y cambiá sus datos. */
 
 const REGLAS_MENSAJES = [
-  {
+   {
+    titulo: "Habla de una compra o cargo que no reconocés",
+    explicacion: "Es una estafa muy común: te asustan con una compra que no hiciste para que entres a un enlace y la \"canceles\". Para revisar un consumo, entrá a la app oficial de tu banco o llamá al número que figura en tu tarjeta, nunca desde un enlace de un mensaje.",
+    peso: 3,
+    patron: /(no reconoce|no reconoces|desconoce (esta|la) (compra|operacion|transaccion)|revertir (la |esta )?(operacion|compra|transaccion)|compra (por|de) (el )?monto|compra no autorizada|cargo no autorizado|consumo (no reconocido|sospechoso)|sitio (de comercio electronico )?extranjero|se debite|actividad (sospechosa|suspechosa))/
+  }, {
     titulo: "Te apuran para que actúes sin pensar",
     explicacion: "Los estafadores crean urgencia para que no tengas tiempo de consultar con nadie.",
     peso: 2,
