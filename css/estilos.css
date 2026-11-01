@@ -350,9 +350,14 @@ textarea:focus-visible {
 }
 
 .resultado-ninguna { border-color: #7fa6bd; }
-.resultado-pocas   { border-color: #d9c27a; }
-.resultado-varias  { border-color: #e0a15e; }
-.resultado-muchas  { border-color: #e0806f; }
+.resultado-pocas   { border-color: #e8963a; }
+.resultado-varias  { border-color: #e06f3c; }
+.resultado-muchas  { border-color: #d9534f; }
+
+/* Nivel leve: el título también va en naranja */
+.resultado-pocas h3 {
+  color: #f0a553;
+}
 
 .resultado h3 {
   font-size: 1.5rem;
@@ -390,4 +395,10 @@ textarea:focus-visible {
   border-top: 1px solid var(--borde-tarjeta);
   padding-top: 16px;
   margin: 24px 0 0;
+}/* Ícono de señalización junto al título del resultado */
+.resultado-icono {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1.3em;
+  vertical-align: middle;
 }

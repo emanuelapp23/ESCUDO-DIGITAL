@@ -102,7 +102,8 @@ const TEXTOS_NIVEL = {
     titulo: "No encontramos señales de alerta conocidas",
     resumen: "Esto NO significa que el mensaje sea seguro. Esta herramienta solo reconoce algunas señales comunes y no puede confirmar quién lo envió ni qué intenciones tiene."
   },
-  pocas: {
+   pocas: {
+    icono: "⚠️",
     titulo: "Encontramos alguna señal de alerta",
     resumen: "Hay pocos indicios, pero conviene ser cuidadoso. Verificá quién te escribió antes de responder."
   },
@@ -177,7 +178,14 @@ function mostrarResultado(resultado) {
   caja.replaceChildren();
   caja.className = "resultado resultado-" + resultado.nivel;
 
-  caja.appendChild(crear("h3", info.titulo));
+   const titulo = crear("h3", "");
+  if (info.icono) {
+    const icono = crear("span", info.icono, "resultado-icono");
+    icono.setAttribute("aria-hidden", "true");
+    titulo.appendChild(icono);
+  }
+  titulo.appendChild(document.createTextNode(info.titulo));
+  caja.appendChild(titulo);
   caja.appendChild(crear("p", info.resumen));
 
   if (resultado.encontradas.length > 0) {
