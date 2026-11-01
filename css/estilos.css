@@ -218,4 +218,41 @@ button:focus-visible {
   h2 { font-size: 1.6rem; }
   .portada { padding: 40px 0 50px; }
   .encabezado .contenedor { justify-content: center; }
+}/* 13. FIRMA DEL CREADOR EN EL PIE */
+.pie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px 28px;
+  text-align: left;
+}
+
+/* Recuadro que "recorta" solo el monograma de la imagen */
+.firma-logo {
+  position: relative;
+  width: 220px;
+  height: 140px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.firma-logo img {
+  position: absolute;
+  width: 476px;              /* imagen agrandada para enfocar el monograma */
+  max-width: none;
+  left: -121px;
+  top: -114px;
+  mix-blend-mode: lighten;   /* el negro se funde con el fondo del pie */
+}
+
+.pie-texto p {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .pie-grid {
+    flex-direction: column;
+    text-align: center;
+  }
 }
