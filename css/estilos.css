@@ -6,18 +6,20 @@
    Todos los colores están acá. Si querés cambiar alguno,
    lo cambiás en este bloque y se actualiza en toda la página. */
 :root {
-  --azul-oscuro: #2f4858;     /* encabezado, portada y pie */
-  --azul-medio: #41667a;      /* efecto al pasar el mouse por el menú */
-  --enlace: #2c5a78;          /* enlaces dentro del texto */
-  --acento: #e3bf6e;          /* botones (dorado suave) */
-  --acento-hover: #d4ae5c;    /* botones al pasar el mouse */
-  --texto: #2b2f36;           /* texto principal (gris oscuro, no negro) */
-  --texto-sobre-oscuro: #f1ede4;  /* texto sobre fondos azules */
-  --fondo: #f3efe6;           /* fondo general (crema) */
-  --fondo-claro: #e4ebe6;     /* tarjetas y secciones alternas (verde grisáceo) */
-  --gris-boton: #5a5f66;      /* botones desactivados */
-  --borde-aviso: #8f6420;
-  --fondo-aviso: #f0e3c4;
+  --azul-oscuro: #2f4858;       /* encabezado, portada y pie */
+  --azul-medio: #41667a;        /* menú al pasar el mouse */
+  --enlace: #8fb8d6;            /* enlaces (celeste claro) */
+  --acento: #e3bf6e;            /* botones (dorado suave) */
+  --acento-hover: #d4ae5c;      /* botones al pasar el mouse */
+  --texto: #e3e0d6;             /* texto principal (crema claro, no blanco puro) */
+  --texto-boton: #2b2f36;       /* texto dentro de los botones dorados */
+  --texto-sobre-oscuro: #f1ede4;
+  --fondo: #1a2026;             /* fondo general (gris azulado oscuro) */
+  --fondo-claro: #252e36;       /* tarjetas y secciones alternas */
+  --borde-tarjeta: #5f8ba3;     /* borde de las tarjetas */
+  --gris-boton: #5a5f66;        /* botones desactivados */
+  --borde-aviso: #e3bf6e;
+  --fondo-aviso: #3a3220;       /* aviso (ámbar oscuro) */
 }
 
 /* 2. REGLAS GENERALES */
@@ -118,7 +120,7 @@ a {
 .boton {
   display: inline-block;
   background: var(--acento);
-  color: var(--texto);
+    color: var(--texto-boton);
   font-family: inherit;
   font-size: 1.2rem;
   font-weight: bold;
@@ -161,7 +163,7 @@ a {
 
 .tarjeta {
   background: var(--fondo-claro);
-  border: 3px solid var(--azul-oscuro);
+    border: 3px solid var(--borde-tarjeta);
   border-radius: 16px;
   padding: 28px 24px;
   text-align: center;
@@ -255,4 +257,27 @@ button:focus-visible {
     flex-direction: column;
     text-align: center;
   }
+}/* 14. LOGO DEL ENCABEZADO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Recuadro que recorta solo el escudo, sin el espacio negro de la imagen */
+.logo-icono {
+  position: relative;
+  width: 90px;
+  height: 65px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.logo-icono img {
+  position: absolute;
+  width: 120px;
+  max-width: none;
+  left: -16px;
+  top: -25px;
+  mix-blend-mode: lighten;   /* el negro se funde con el azul del encabezado */
 }
