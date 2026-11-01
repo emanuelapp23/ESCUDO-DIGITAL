@@ -1,0 +1,221 @@
+/* ============================================
+   ESCUDO DIGITAL - Estilos (paleta suave, bajo brillo)
+   ============================================ */
+
+/* 1. COLORES Y MEDIDAS BÁSICAS
+   Todos los colores están acá. Si querés cambiar alguno,
+   lo cambiás en este bloque y se actualiza en toda la página. */
+:root {
+  --azul-oscuro: #2f4858;     /* encabezado, portada y pie */
+  --azul-medio: #41667a;      /* efecto al pasar el mouse por el menú */
+  --enlace: #2c5a78;          /* enlaces dentro del texto */
+  --acento: #e3bf6e;          /* botones (dorado suave) */
+  --acento-hover: #d4ae5c;    /* botones al pasar el mouse */
+  --texto: #2b2f36;           /* texto principal (gris oscuro, no negro) */
+  --texto-sobre-oscuro: #f1ede4;  /* texto sobre fondos azules */
+  --fondo: #f3efe6;           /* fondo general (crema) */
+  --fondo-claro: #e4ebe6;     /* tarjetas y secciones alternas (verde grisáceo) */
+  --gris-boton: #5a5f66;      /* botones desactivados */
+  --borde-aviso: #8f6420;
+  --fondo-aviso: #f0e3c4;
+}
+
+/* 2. REGLAS GENERALES */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.15rem;      /* letra grande */
+  line-height: 1.6;        /* espacio entre renglones */
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+  margin-top: 0;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.9rem; }
+h3 { font-size: 1.4rem; }
+
+a {
+  color: var(--enlace);
+}
+
+/* Contenedor: centra el contenido y limita su ancho */
+.contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 3. ENCABEZADO */
+.encabezado {
+  background: var(--azul-oscuro);
+  padding: 14px 0;
+}
+
+.encabezado .contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.logo {
+  color: var(--texto-sobre-oscuro);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  display: block;
+  color: var(--texto-sobre-oscuro);
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  background: var(--azul-medio);
+}
+
+/* 4. PORTADA */
+.portada {
+  background: var(--azul-oscuro);
+  color: var(--texto-sobre-oscuro);
+  padding: 60px 0 70px;
+}
+
+.portada-texto {
+  font-size: 1.3rem;
+  max-width: 650px;
+  margin-bottom: 30px;
+}
+
+/* 5. BOTONES */
+.boton {
+  display: inline-block;
+  background: var(--acento);
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  padding: 16px 28px;
+  min-height: 56px;          /* alto cómodo para tocar */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background: var(--acento-hover);
+}
+
+/* Botones desactivados ("Próximamente") */
+.boton:disabled {
+  background: var(--gris-boton);
+  color: var(--texto-sobre-oscuro);
+  cursor: not-allowed;
+}
+
+/* 6. SECCIONES */
+.seccion {
+  padding: 50px 0;
+}
+
+.seccion-clara {
+  background: var(--fondo-claro);
+}
+
+/* 7. TARJETAS DE HERRAMIENTAS */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.tarjeta {
+  background: var(--fondo-claro);
+  border: 3px solid var(--azul-oscuro);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.tarjeta-icono {
+  font-size: 3.2rem;
+  margin-bottom: 8px;
+}
+
+.tarjeta .boton {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* 8. AVISO IMPORTANTE */
+.aviso {
+  background: var(--fondo-aviso);
+  border-left: 8px solid var(--borde-aviso);
+  border-radius: 8px;
+  padding: 24px 28px;
+}
+
+.aviso h2 {
+  font-size: 1.6rem;
+}
+
+.aviso p {
+  margin-bottom: 0;
+}
+
+/* 9. PIE DE PÁGINA */
+.pie {
+  background: var(--azul-oscuro);
+  color: var(--texto-sobre-oscuro);
+  text-align: center;
+  padding: 24px 0;
+}
+
+.pie p {
+  margin: 0;
+}
+
+/* 10. ACCESIBILIDAD: borde visible al navegar con el teclado */
+a:focus-visible,
+button:focus-visible {
+  outline: 4px solid var(--acento);
+  outline-offset: 3px;
+}
+
+/* 11. CELULARES: ajustes para pantallas chicas */
+@media (max-width: 600px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.6rem; }
+  .portada { padding: 40px 0 50px; }
+  .encabezado .contenedor { justify-content: center; }
+}
