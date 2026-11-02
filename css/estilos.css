@@ -475,4 +475,39 @@ input[type="file"] {
   background: var(--fondo);
   border-left: 8px solid var(--borde-tarjeta);
   border-radius: 8px;
+}/* 18. GUÍA "YA HICE CLIC" */
+.situaciones {
+  margin-top: 24px;
+}
+
+.situacion {
+  background: var(--fondo-claro);
+  border: 3px solid var(--borde-tarjeta);
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.situacion summary {
+  cursor: pointer;
+  padding: 18px 20px;
+  min-height: 56px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.situacion[open] summary {
+  border-bottom: 1px solid var(--borde-tarjeta);
+}
+
+.situacion summary:focus-visible {
+  outline: 4px solid var(--acento);
+  outline-offset: 3px;
+}
+
+.situacion-cuerpo {
+  padding: 8px 24px 20px;
+}
+
+.situacion-cuerpo li {
+  margin-bottom: 12px;
 }
