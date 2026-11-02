@@ -402,3 +402,44 @@ textarea:focus-visible {
   font-size: 1.3em;
   vertical-align: middle;
 }
+/* 16. ANALIZADOR DE ENLACES */
+input[type="text"] {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  font-family: inherit;
+  font-size: 1.15rem;
+  color: var(--texto);
+  background: var(--fondo);
+  border: 3px solid var(--borde-tarjeta);
+  border-radius: 12px;
+}
+
+input[type="text"]:focus-visible {
+  outline: 4px solid var(--acento);
+  outline-offset: 3px;
+}
+
+.destino-enlace {
+  background: var(--fondo-claro);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 16px 0;
+}
+
+.destino-enlace strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.destino-enlace .dominio {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: bold;
+  word-break: break-all;   /* evita que un dominio largo se salga de la pantalla */
+}
+
+.destino-nota {
+  font-size: 1rem;
+  margin: 8px 0 0;
+}
