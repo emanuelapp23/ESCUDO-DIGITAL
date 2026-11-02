@@ -545,4 +545,23 @@ input[type="file"] {
 
 .simulacro-respuesta .boton {
   margin-top: 16px;
+}/* 20. COPIAR RESUMEN */
+.acciones-resumen {
+  margin-top: 24px;
+  padding-top: 8px;
+  border-top: 1px solid var(--borde-tarjeta);
+}
+
+.estado-copia {
+  margin: 12px 0 0;
+  font-weight: bold;
+}
+
+.estado-copia:empty {
+  display: none;
+}
+
+.copia-manual {
+  margin-top: 12px;
+  min-height: 160px;
 }
