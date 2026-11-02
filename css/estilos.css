@@ -589,4 +589,25 @@ textarea:focus-visible {
   .pie-grid { flex-direction: column; text-align: center; }
   .boton { width: 100%; }
   .menu a { padding: 10px 14px; }
+
+}.menu svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;          /* línea fina */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: var(--texto-suave);  /* gris apagado en reposo */
+  transition: color 0.2s;
+}
+
+.menu a:hover svg {
+  color: var(--turquesa);     /* se ilumina solo al pasar el mouse */
+}
+.logo-el {
+  height: 52px;
+  width: auto;
+  flex-shrink: 0;
 }
