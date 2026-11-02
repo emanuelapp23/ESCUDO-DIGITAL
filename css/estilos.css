@@ -510,4 +510,39 @@ input[type="file"] {
 
 .situacion-cuerpo li {
   margin-bottom: 12px;
+}/* 19. SECCIÓN EDUCATIVA Y SIMULACRO */
+.titulo-practica {
+  margin-top: 40px;
+  font-size: 1.6rem;
+}
+
+.simulacro {
+  margin-top: 20px;
+}
+
+.simulacro-progreso {
+  font-weight: bold;
+  margin: 0 0 12px;
+}
+
+.mensaje-practica {
+  margin: 0 0 20px;
+  padding: 20px 24px;
+  background: var(--fondo);
+  border-left: 8px solid var(--borde-tarjeta);
+  border-radius: 8px;
+  font-size: 1.2rem;
+}
+
+.simulacro-pregunta {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.simulacro-respuesta {
+  margin-top: 24px;
+}
+
+.simulacro-respuesta .boton {
+  margin-top: 16px;
 }

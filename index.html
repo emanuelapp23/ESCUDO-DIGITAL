@@ -285,10 +285,97 @@
     </section>
     <!-- EDUCACIÓN: sección para aprender -->
     <section id="aprender" class="seccion seccion-clara">
-      <div class="contenedor">
+      <div class="contenedor contenedor-angosto">
         <h2>Aprendé a protegerte</h2>
-        <p>Pronto vas a encontrar acá consejos simples y claros sobre seguridad digital.</p>
-      </div>
+        <p>
+          Las estafas cambian de disfraz, pero casi todas se apoyan en las mismas ideas.
+          Si las conocés, es más fácil frenar a tiempo.
+        </p>
+
+        <div class="situaciones">
+
+          <details class="situacion">
+            <summary>1. Frená antes de actuar</summary>
+            <div class="situacion-cuerpo">
+              <p>
+                Casi todas las estafas te apuran: «en 24 horas», «ahora mismo», «último aviso».
+                La urgencia está pensada para que no consultes con nadie. Una empresa seria
+                te da tiempo. Si un mensaje te pone nervioso, esperá unos minutos y hablalo
+                con alguien antes de responder.
+              </p>
+            </div>
+          </details>
+
+          <details class="situacion">
+            <summary>2. Nadie serio te pide claves o códigos por mensaje</summary>
+            <div class="situacion-cuerpo">
+              <p>
+                Ni tu banco, ni una billetera virtual, ni un organismo público te van a pedir
+                tu contraseña, tu clave o el código que te llega por SMS o WhatsApp. Si alguien
+                te lo pide, es un intento de entrar a tu cuenta.
+              </p>
+            </div>
+          </details>
+
+          <details class="situacion">
+            <summary>3. Verificá por otro camino</summary>
+            <div class="situacion-cuerpo">
+              <p>
+                Si un mensaje dice ser de tu banco, de un organismo o de una empresa, no uses
+                los enlaces ni los teléfonos del mensaje. Abrí la aplicación oficial, escribí
+                vos la dirección en el navegador o llamá al número que figura en tu tarjeta o
+                en el sitio oficial.
+              </p>
+            </div>
+          </details>
+
+          <details class="situacion">
+            <summary>4. Cuidado con «mamá, cambié de número»</summary>
+            <div class="situacion-cuerpo">
+              <p>
+                Alguien escribe desde un número desconocido haciéndose pasar por un hijo, nieto
+                o familiar, y pide ayuda urgente o una transferencia. Antes de hacer nada,
+                llamá a esa persona a su número de siempre, o preguntale a otro familiar.
+                Podés hacerle una pregunta que solo la persona real sepa responder.
+              </p>
+            </div>
+          </details>
+
+          <details class="situacion">
+            <summary>5. Desconfiá de premios, herencias y ganancias fáciles</summary>
+            <div class="situacion-cuerpo">
+              <p>
+                Si no participaste de un sorteo, no pudiste ganarlo. Si te prometen ganancias
+                aseguradas o trabajo fácil muy bien pago, es una señal de alerta. Y si para
+                «cobrar» te piden pagar algo antes, es una estafa muy conocida.
+              </p>
+            </div>
+          </details>
+
+          <details class="situacion">
+            <summary>6. Nunca instales programas porque alguien te lo pide</summary>
+            <div class="situacion-cuerpo">
+              <p>
+                Programas de «soporte» o «acceso remoto» permiten que otra persona controle tu
+                celular o computadora y vacíe tus cuentas. Si alguien que te llamó o te escribió
+                te pide instalar algo, cortá la comunicación.
+              </p>
+            </div>
+          </details>
+
+        </div>
+
+        <h3 class="titulo-practica">Practicá: ¿estafa o mensaje real?</h3>
+        <p>
+          Te mostramos ocho mensajes de práctica. Los escribimos nosotros, son inventados,
+          y <strong>algunos son reales y otros son estafas</strong>. Elegí qué te parece y
+          mirá la explicación. No se guarda nada y no pasa nada si te equivocás: se aprende
+          practicando.
+        </p>
+
+        <div id="simulacro" class="simulacro">
+          <button type="button" id="boton-empezar-simulacro" class="boton">Empezar la práctica</button>
+        </div>
     </section>
 
     <!-- AVISO HONESTO -->
@@ -325,7 +412,7 @@
 
   <script src="js/analizador-mensajes.js"></script>
   <script src="js/analizador-enlaces.js"></script>
-
+  <script src="js/simulacro.js"></script>
 </body>
 </html>
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
