@@ -59,7 +59,7 @@
             <div class="tarjeta-icono">🔗</div>
             <h3>Un enlace</h3>
             <p>Pegá el link que te mandaron, sin hacer clic en él.</p>
-            <button class="boton" disabled>Próximamente</button>
+            <a href="#analizar-enlace" class="boton">Revisar un enlace</a>
           </article>
 
           <article class="tarjeta">
@@ -92,6 +92,33 @@
         </div>
 
         <div id="resultado-mensaje" class="resultado" tabindex="-1" hidden></div>
+      </div>
+    </section>
+        <!-- ANALIZADOR DE ENLACES -->
+    <section id="analizar-enlace" class="seccion seccion-clara">
+      <div class="contenedor contenedor-angosto">
+        <h2>Revisar un enlace</h2>
+        <p>
+          Pegá acá el enlace que te mandaron. Se revisa en tu propio dispositivo:
+          no se abre, no se envía y no se guarda en ningún lado.
+        </p>
+        <p>
+          <strong>¿Cómo copiarlo sin abrirlo?</strong> En el celular, mantené el dedo
+          apretado sobre el enlace y elegí «Copiar». En la computadora, clic derecho
+          sobre el enlace y «Copiar dirección de enlace».
+        </p>
+
+        <label for="texto-enlace" class="etiqueta">Enlace</label>
+        <input type="text" id="texto-enlace" autocomplete="off" spellcheck="false"
+               inputmode="url" placeholder="Pegá acá el enlace...">
+
+        <div class="acciones">
+          <button type="button" id="boton-revisar-enlace" class="boton">Revisar enlace</button>
+          <button type="button" id="boton-ejemplo-enlace" class="boton boton-secundario">Probar con un ejemplo</button>
+          <button type="button" id="boton-borrar-enlace" class="boton boton-secundario">Borrar</button>
+        </div>
+
+        <div id="resultado-enlace" class="resultado" tabindex="-1" hidden></div>
       </div>
     </section>
     <!-- EDUCACIÓN: sección para aprender -->
