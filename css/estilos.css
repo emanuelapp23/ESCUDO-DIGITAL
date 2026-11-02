@@ -442,4 +442,37 @@ input[type="text"]:focus-visible {
 .destino-nota {
   font-size: 1rem;
   margin: 8px 0 0;
+}/* 17. ANALIZADOR DE CAPTURAS */
+input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  color: var(--texto);
+  background: var(--fondo);
+  border: 3px dashed var(--borde-tarjeta);
+  border-radius: 12px;
+}
+
+.vista-captura {
+  display: block;
+  max-width: 100%;
+  max-height: 360px;
+  margin: 16px 0;
+  border: 3px solid var(--borde-tarjeta);
+  border-radius: 12px;
+}
+
+.vista-captura[hidden],
+.estado-captura[hidden] {
+  display: none;
+}
+
+.estado-captura {
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  background: var(--fondo);
+  border-left: 8px solid var(--borde-tarjeta);
+  border-radius: 8px;
 }

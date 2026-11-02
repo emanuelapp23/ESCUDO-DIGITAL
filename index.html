@@ -66,7 +66,7 @@
             <div class="tarjeta-icono">📷</div>
             <h3>Una captura de pantalla</h3>
             <p>Subí una imagen y leemos el texto para buscar señales de alerta.</p>
-            <button class="boton" disabled>Próximamente</button>
+            <a href="#analizar-captura" class="boton">Revisar una captura</a>
           </article>
 
         </div>
@@ -121,6 +121,43 @@
         <div id="resultado-enlace" class="resultado" tabindex="-1" hidden></div>
       </div>
     </section>
+        <!-- ANALIZADOR DE CAPTURAS -->
+    <section id="analizar-captura" class="seccion seccion-clara">
+      <div class="contenedor contenedor-angosto">
+        <h2>Revisar una captura de pantalla</h2>
+        <p>
+          Elegí la captura y leemos el texto que aparece en ella. <strong>La imagen
+          no se envía a ningún servidor</strong>: se lee en tu propio dispositivo.
+          Eso sí, la primera vez se descarga la herramienta de lectura desde internet,
+          así que hace falta conexión y puede tardar un poco.
+        </p>
+        <p>
+          Ojo: solo analizamos el <strong>texto</strong>. No podemos ver quién lo envió
+          ni si el número es real, y la lectura puede tener errores.
+        </p>
+
+        <label for="archivo-captura" class="etiqueta">Elegí la imagen</label>
+        <input type="file" id="archivo-captura" accept="image/*">
+
+        <img id="vista-captura" class="vista-captura" alt="Vista previa de la captura elegida" hidden>
+
+        <div class="acciones">
+          <button type="button" id="boton-leer-captura" class="boton" disabled>Leer el texto de la imagen</button>
+          <button type="button" id="boton-borrar-captura" class="boton boton-secundario">Borrar</button>
+        </div>
+
+        <p id="estado-captura" class="estado-captura" role="status" aria-live="polite" hidden></p>
+
+        <div id="bloque-texto-captura" hidden>
+          <label for="texto-captura" class="etiqueta">Texto leído (podés corregirlo)</label>
+          <textarea id="texto-captura" rows="8"></textarea>
+          <div class="acciones">
+            <button type="button" id="boton-revisar-captura" class="boton">Revisar este texto</button>
+          </div>
+          <p class="destino-nota">El resultado aparece en la sección «Revisar un mensaje», más arriba.</p>
+        </div>
+      </div>
+    </section>
     <!-- EDUCACIÓN: sección para aprender -->
     <section id="aprender" class="seccion seccion-clara">
       <div class="contenedor">
@@ -166,3 +203,7 @@
 
 </body>
 </html>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="js/analizador-mensajes.js"></script>
+  <script src="js/analizador-enlaces.js"></script>
+  <script src="js/analizador-capturas.js"></script>
