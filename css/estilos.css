@@ -1,69 +1,83 @@
 /* ============================================
-   ESCUDO DIGITAL - Estilos (paleta suave, bajo brillo)
+   ESCUDO DIGITAL - Estilos v2
+   Oscuro, moderno, de bajo brillo.
+   Cambiá los colores en el bloque :root y se actualiza todo.
    ============================================ */
 
-/* 1. COLORES Y MEDIDAS BÁSICAS
-   Todos los colores están acá. Si querés cambiar alguno,
-   lo cambiás en este bloque y se actualiza en toda la página. */
+/* 1. COLORES */
 :root {
-  --azul-oscuro: #2f4858;       /* encabezado, portada y pie */
-  --azul-medio: #41667a;        /* menú al pasar el mouse */
-  --enlace: #8fb8d6;            /* enlaces (celeste claro) */
-  --acento: #e3bf6e;            /* botones (dorado suave) */
-  --acento-hover: #d4ae5c;      /* botones al pasar el mouse */
-  --texto: #e3e0d6;             /* texto principal (crema claro, no blanco puro) */
-  --texto-boton: #2b2f36;       /* texto dentro de los botones dorados */
-  --texto-sobre-oscuro: #f1ede4;
-  --fondo: #1a2026;             /* fondo general (gris azulado oscuro) */
-  --fondo-claro: #252e36;       /* tarjetas y secciones alternas */
-  --borde-tarjeta: #5f8ba3;     /* borde de las tarjetas */
-  --gris-boton: #5a5f66;        /* botones desactivados */
-  --borde-aviso: #e3bf6e;
-  --fondo-aviso: #3a3220;       /* aviso (ámbar oscuro) */
+  --fondo: #0a0e15;
+  --fondo-2: #0f1520;
+  --superficie: #141c2a;
+  --superficie-2: #1a2435;
+  --borde: #273550;
+  --texto: #e4e9f0;
+  --texto-suave: #a8b3c5;
+
+  --turquesa: #3fd0c9;
+  --azul: #5a9bff;
+  --violeta: #8b6cff;
+  --degradado: linear-gradient(135deg, #3fd0c9, #5a9bff);
+  --degradado-texto: linear-gradient(120deg, #5fe0d8, #6aa8ff 55%, #a58bff);
+  --sobre-acento: #06121b;       /* texto sobre los botones de color */
+  --foco: #8ff0e9;
+
+  --ambar: #e3bf6e;
 }
 
 /* 2. REGLAS GENERALES */
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;   /* para que el encabezado no tape los títulos */
 }
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.15rem;      /* letra grande */
-  line-height: 1.6;        /* espacio entre renglones */
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
   color: var(--texto);
   background: var(--fondo);
 }
 
-h1, h2, h3 {
-  line-height: 1.25;
+h1, h2, h3, h4 {
+  line-height: 1.2;
   margin-top: 0;
+  letter-spacing: -0.01em;
 }
 
 h1 { font-size: 2.2rem; }
-h2 { font-size: 1.9rem; }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.3rem); font-weight: 800; }
 h3 { font-size: 1.4rem; }
 
-a {
-  color: var(--enlace);
-}
+a { color: #8cc4ff; }
 
-/* Contenedor: centra el contenido y limita su ancho */
 .contenedor {
-  max-width: 1000px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
+.contenedor-angosto { max-width: 820px; }
+
 /* 3. ENCABEZADO */
 .encabezado {
-  background: var(--azul-oscuro);
-  padding: 14px 0;
+  background: rgba(10, 14, 21, 0.94);
+  border-bottom: 1px solid var(--borde);
+  padding: 12px 0;
+}
+
+@media (min-width: 700px) {
+  .encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+  }
 }
 
 .encabezado .contenedor {
@@ -75,196 +89,15 @@ a {
 }
 
 .logo {
-  color: var(--texto-sobre-oscuro);
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu a {
-  display: block;
-  color: var(--texto-sobre-oscuro);
-  text-decoration: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-.menu a:hover {
-  background: var(--azul-medio);
-}
-
-/* 4. PORTADA */
-.portada {
-  background: var(--azul-oscuro);
-  color: var(--texto-sobre-oscuro);
-  padding: 60px 0 70px;
-}
-
-.portada-texto {
-  font-size: 1.3rem;
-  max-width: 650px;
-  margin-bottom: 30px;
-}
-
-/* 5. BOTONES */
-.boton {
-  display: inline-block;
-  background: var(--acento);
-    color: var(--texto-boton);
-  font-family: inherit;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  padding: 16px 28px;
-  min-height: 56px;          /* alto cómodo para tocar */
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.boton:hover {
-  background: var(--acento-hover);
-}
-
-/* Botones desactivados ("Próximamente") */
-.boton:disabled {
-  background: var(--gris-boton);
-  color: var(--texto-sobre-oscuro);
-  cursor: not-allowed;
-}
-
-/* 6. SECCIONES */
-.seccion {
-  padding: 50px 0;
-}
-
-.seccion-clara {
-  background: var(--fondo-claro);
-}
-
-/* 7. TARJETAS DE HERRAMIENTAS */
-.tarjetas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-  margin-top: 24px;
-}
-
-.tarjeta {
-  background: var(--fondo-claro);
-    border: 3px solid var(--borde-tarjeta);
-  border-radius: 16px;
-  padding: 28px 24px;
-  text-align: center;
-}
-
-.tarjeta-icono {
-  font-size: 3.2rem;
-  margin-bottom: 8px;
-}
-
-.tarjeta .boton {
-  width: 100%;
-  margin-top: 8px;
-}
-
-/* 8. AVISO IMPORTANTE */
-.aviso {
-  background: var(--fondo-aviso);
-  border-left: 8px solid var(--borde-aviso);
-  border-radius: 8px;
-  padding: 24px 28px;
-}
-
-.aviso h2 {
-  font-size: 1.6rem;
-}
-
-.aviso p {
-  margin-bottom: 0;
-}
-
-/* 9. PIE DE PÁGINA */
-.pie {
-  background: var(--azul-oscuro);
-  color: var(--texto-sobre-oscuro);
-  text-align: center;
-  padding: 24px 0;
-}
-
-.pie p {
-  margin: 0;
-}
-
-/* 10. ACCESIBILIDAD: borde visible al navegar con el teclado */
-a:focus-visible,
-button:focus-visible {
-  outline: 4px solid var(--acento);
-  outline-offset: 3px;
-}
-
-/* 11. CELULARES: ajustes para pantallas chicas */
-@media (max-width: 600px) {
-  h1 { font-size: 1.8rem; }
-  h2 { font-size: 1.6rem; }
-  .portada { padding: 40px 0 50px; }
-  .encabezado .contenedor { justify-content: center; }
-}/* 13. FIRMA DEL CREADOR EN EL PIE */
-.pie-grid {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 20px 28px;
-  text-align: left;
-}
-
-/* Recuadro que "recorta" solo el monograma de la imagen */
-.firma-logo {
-  position: relative;
-  width: 220px;
-  height: 140px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.firma-logo img {
-  position: absolute;
-  width: 476px;              /* imagen agrandada para enfocar el monograma */
-  max-width: none;
-  left: -121px;
-  top: -114px;
-  mix-blend-mode: lighten;   /* el negro se funde con el fondo del pie */
-}
-
-.pie-texto p {
-  margin: 0;
-}
-
-@media (max-width: 600px) {
-  .pie-grid {
-    flex-direction: column;
-    text-align: center;
-  }
-}/* 14. LOGO DEL ENCABEZADO */
-.logo {
   display: flex;
   align-items: center;
   gap: 12px;
+  color: var(--texto);
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-decoration: none;
 }
 
-/* Recuadro que recorta solo el escudo, sin el espacio negro de la imagen */
 .logo-icono {
   position: relative;
   width: 90px;
@@ -279,93 +112,311 @@ button:focus-visible {
   max-width: none;
   left: -16px;
   top: -25px;
-  mix-blend-mode: lighten;   /* el negro se funde con el azul del encabezado */
-}/* 15. ANALIZADOR DE MENSAJES */
-
-/* Si dos secciones claras quedan juntas, las separa con una línea */
-.seccion-clara + .seccion-clara {
-  border-top: 2px solid var(--borde-tarjeta);
+  mix-blend-mode: lighten;
 }
 
-.contenedor-angosto {
-  max-width: 800px;
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
+.menu a {
+  display: block;
+  color: var(--texto-suave);
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu a:hover {
+  background: var(--superficie-2);
+  color: var(--texto);
+}
+
+/* 4. PORTADA */
+.portada {
+  position: relative;
+  overflow: hidden;
+  padding: 90px 0 100px;
+  border-bottom: 1px solid var(--borde);
+  background:
+    radial-gradient(60% 90% at 12% 0%, rgba(63, 208, 201, 0.16), transparent 60%),
+    radial-gradient(55% 80% at 92% 15%, rgba(139, 108, 255, 0.18), transparent 60%),
+    var(--fondo);
+}
+
+.portada h1 {
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.resaltado {
+  color: #6aa8ff;   /* respaldo si el navegador no soporta el degradado */
+  background: var(--degradado-texto);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.portada-texto {
+  font-size: 1.3rem;
+  color: var(--texto-suave);
+  max-width: 640px;
+  margin: 0 0 32px;
+}
+
+/* 5. BOTONES */
+.boton {
+  display: inline-block;
+  background: var(--degradado);
+  color: var(--sobre-acento);
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px 30px;
+  min-height: 56px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(63, 208, 201, 0.22);
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.boton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 34px rgba(63, 208, 201, 0.32);
+}
+
+.boton:disabled {
+  background: var(--superficie-2);
+  color: var(--texto-suave);
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.boton-secundario {
+  background: transparent;
+  color: var(--texto);
+  border: 2px solid var(--borde);
+  box-shadow: none;
+}
+
+.boton-secundario:hover {
+  background: var(--superficie-2);
+  border-color: var(--turquesa);
+  box-shadow: none;
+}
+
+/* 6. SECCIONES */
+.seccion { padding: 80px 0; }
+
+.seccion-clara {
+  background: var(--fondo-2);
+  border-top: 1px solid var(--borde);
+}
+
+.seccion-clara + .seccion-clara { border-top: 1px solid var(--borde); }
+
+/* 7. TARJETAS DE HERRAMIENTAS */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--superficie), var(--fondo-2));
+  border: 1px solid var(--borde);
+  border-radius: 22px;
+  padding: 32px 28px;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  border-color: var(--turquesa);
+  box-shadow: 0 16px 40px rgba(63, 208, 201, 0.12);
+}
+
+.tarjeta-icono {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  margin-bottom: 18px;
+  font-size: 2.1rem;
+  background: rgba(63, 208, 201, 0.1);
+  border: 1px solid rgba(63, 208, 201, 0.3);
+  border-radius: 18px;
+}
+
+.tarjeta h3 { margin-bottom: 8px; }
+
+.tarjeta p {
+  color: var(--texto-suave);
+  margin: 0 0 24px;
+}
+
+.tarjeta .boton {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* 8. AVISO IMPORTANTE */
+.aviso {
+  background: rgba(227, 191, 110, 0.08);
+  border: 1px solid rgba(227, 191, 110, 0.35);
+  border-left: 6px solid var(--ambar);
+  border-radius: 14px;
+  padding: 24px 28px;
+}
+
+.aviso h2 { font-size: 1.6rem; }
+.aviso p { margin: 0; }
+.aviso h2 + p { margin-top: 8px; }
+
+/* 9. PIE DE PÁGINA */
+.pie {
+  background: #080b11;
+  color: var(--texto-suave);
+  border-top: 1px solid var(--borde);
+  padding: 32px 0;
+}
+
+.pie p { margin: 0; }
+
+.pie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px 28px;
+  text-align: left;
+}
+
+.firma-logo {
+  position: relative;
+  width: 220px;
+  height: 140px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.firma-logo img {
+  position: absolute;
+  width: 476px;
+  max-width: none;
+  left: -121px;
+  top: -114px;
+  mix-blend-mode: lighten;
+}
+
+/* 10. FORMULARIOS */
 .etiqueta {
   display: block;
-  font-weight: bold;
-  margin: 20px 0 8px;
+  font-weight: 700;
+  margin: 22px 0 8px;
 }
 
-textarea {
+textarea,
+input[type="text"] {
   display: block;
   width: 100%;
-  min-height: 200px;
-  padding: 16px;
+  padding: 16px 18px;
   font-family: inherit;
   font-size: 1.15rem;
   line-height: 1.5;
   color: var(--texto);
-  background: var(--fondo);
-  border: 3px solid var(--borde-tarjeta);
-  border-radius: 12px;
-  resize: vertical;
+  background: var(--fondo-2);
+  border: 2px solid var(--borde);
+  border-radius: 16px;
+  transition: border-color 0.2s;
 }
 
-textarea:focus-visible {
-  outline: 4px solid var(--acento);
-  outline-offset: 3px;
+textarea { min-height: 200px; resize: vertical; }
+
+textarea::placeholder,
+input[type="text"]::placeholder { color: #6f7c91; }
+
+textarea:focus,
+input[type="text"]:focus { border-color: var(--turquesa); }
+
+input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  font-family: inherit;
+  font-size: 1.05rem;
+  color: var(--texto-suave);
+  background: var(--fondo-2);
+  border: 2px dashed var(--borde);
+  border-radius: 16px;
+}
+
+input[type="file"]::file-selector-button {
+  background: var(--degradado);
+  color: var(--sobre-acento);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  margin-right: 16px;
+  cursor: pointer;
 }
 
 .acciones {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 16px;
+  margin-top: 18px;
 }
 
-.boton-secundario {
-  background: transparent;
-  color: var(--texto);
-  border: 3px solid var(--borde-tarjeta);
-}
-
-.boton-secundario:hover {
-  background: var(--azul-oscuro);
-}
-
-/* Caja del resultado. El color del borde cambia según el nivel,
-   pero siempre hay un título escrito, para no depender solo del color. */
+/* 11. RESULTADOS (mensajes, enlaces y práctica) */
 .resultado {
   margin-top: 28px;
-  padding: 24px 28px;
-  background: var(--fondo);
-  border: 3px solid var(--borde-tarjeta);
-  border-left-width: 10px;
-  border-radius: 12px;
+  padding: 26px 28px;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-left: 8px solid var(--borde);
+  border-radius: 18px;
 }
 
-.resultado[hidden] {
-  display: none;
-}
+/* Cada nivel tiene su color Y su título escrito: no depende solo del color */
+.resultado-ninguna { border-left-color: #6cc3e0; }
+.resultado-pocas   { border-left-color: #e8963a; }
+.resultado-varias  { border-left-color: #e06f3c; }
+.resultado-muchas  { border-left-color: #d9534f; }
 
-.resultado-ninguna { border-color: #7fa6bd; }
-.resultado-pocas   { border-color: #e8963a; }
-.resultado-varias  { border-color: #e06f3c; }
-.resultado-muchas  { border-color: #d9534f; }
+.resultado-ninguna h3 { color: #8ad4ec; }
+.resultado-pocas h3   { color: #f0a553; }
+.resultado-varias h3  { color: #f58d5f; }
+.resultado-muchas h3  { color: #ff7a73; }
 
-/* Nivel leve: el título también va en naranja */
-.resultado-pocas h3 {
-  color: #f0a553;
-}
+.resultado h3 { font-size: 1.5rem; }
+.resultado h4 { font-size: 1.2rem; margin: 24px 0 8px; }
 
-.resultado h3 {
-  font-size: 1.5rem;
-}
-
-.resultado h4 {
-  font-size: 1.2rem;
-  margin: 24px 0 8px;
+.resultado-icono {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1.3em;
+  vertical-align: middle;
 }
 
 .lista-senales {
@@ -375,193 +426,167 @@ textarea:focus-visible {
 }
 
 .lista-senales li {
-  background: var(--fondo-claro);
-  border-radius: 10px;
-  padding: 14px 16px;
+  background: var(--superficie-2);
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 14px 18px;
   margin-bottom: 12px;
 }
 
-.lista-senales strong {
-  display: block;
-  margin-bottom: 4px;
-}
+.lista-senales strong { display: block; margin-bottom: 4px; }
 
-.lista-consejos li {
-  margin-bottom: 8px;
-}
+.lista-consejos li { margin-bottom: 8px; }
 
 .resultado-aviso {
   font-size: 1rem;
-  border-top: 1px solid var(--borde-tarjeta);
+  color: var(--texto-suave);
+  border-top: 1px solid var(--borde);
   padding-top: 16px;
   margin: 24px 0 0;
-}/* Ícono de señalización junto al título del resultado */
-.resultado-icono {
-  display: inline-block;
-  margin-right: 10px;
-  font-size: 1.3em;
-  vertical-align: middle;
-}
-/* 16. ANALIZADOR DE ENLACES */
-input[type="text"] {
-  display: block;
-  width: 100%;
-  padding: 16px;
-  font-family: inherit;
-  font-size: 1.15rem;
-  color: var(--texto);
-  background: var(--fondo);
-  border: 3px solid var(--borde-tarjeta);
-  border-radius: 12px;
 }
 
-input[type="text"]:focus-visible {
-  outline: 4px solid var(--acento);
-  outline-offset: 3px;
-}
-
+/* 12. ENLACES: DESTINO REAL */
 .destino-enlace {
-  background: var(--fondo-claro);
-  border-radius: 10px;
-  padding: 14px 16px;
-  margin: 16px 0;
+  background: var(--fondo-2);
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 18px 0;
 }
 
-.destino-enlace strong {
-  display: block;
-  margin-bottom: 4px;
-}
+.destino-enlace strong { display: block; margin-bottom: 4px; }
 
 .destino-enlace .dominio {
   display: block;
-  font-size: 1.3rem;
-  font-weight: bold;
-  word-break: break-all;   /* evita que un dominio largo se salga de la pantalla */
+  font-family: ui-monospace, Consolas, "Courier New", monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--turquesa);
+  word-break: break-all;
 }
 
 .destino-nota {
   font-size: 1rem;
+  color: var(--texto-suave);
   margin: 8px 0 0;
-}/* 17. ANALIZADOR DE CAPTURAS */
-input[type="file"] {
-  display: block;
-  width: 100%;
-  padding: 14px;
-  font-family: inherit;
-  font-size: 1.1rem;
-  color: var(--texto);
-  background: var(--fondo);
-  border: 3px dashed var(--borde-tarjeta);
-  border-radius: 12px;
 }
 
+/* 13. CAPTURAS */
 .vista-captura {
   display: block;
   max-width: 100%;
   max-height: 360px;
-  margin: 16px 0;
-  border: 3px solid var(--borde-tarjeta);
-  border-radius: 12px;
-}
-
-.vista-captura[hidden],
-.estado-captura[hidden] {
-  display: none;
+  margin: 18px 0;
+  border: 1px solid var(--borde);
+  border-radius: 16px;
 }
 
 .estado-captura {
-  margin: 16px 0 0;
-  padding: 12px 16px;
-  background: var(--fondo);
-  border-left: 8px solid var(--borde-tarjeta);
-  border-radius: 8px;
-}/* 18. GUÍA "YA HICE CLIC" */
-.situaciones {
-  margin-top: 24px;
+  margin: 18px 0 0;
+  padding: 14px 18px;
+  background: var(--superficie);
+  border-left: 6px solid var(--turquesa);
+  border-radius: 12px;
 }
+
+/* 14. GUÍA Y CONSEJOS (bloques desplegables) */
+.situaciones { margin-top: 28px; }
 
 .situacion {
-  background: var(--fondo-claro);
-  border: 3px solid var(--borde-tarjeta);
-  border-radius: 12px;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 18px;
   margin-bottom: 14px;
+  transition: border-color 0.2s;
 }
+
+.situacion:hover { border-color: #3a4d6e; }
+.situacion[open] { border-color: var(--turquesa); }
 
 .situacion summary {
+  list-style: none;
   cursor: pointer;
-  padding: 18px 20px;
-  min-height: 56px;
+  padding: 18px 24px;
+  min-height: 60px;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
-.situacion[open] summary {
-  border-bottom: 1px solid var(--borde-tarjeta);
+.situacion summary::-webkit-details-marker { display: none; }
+
+.situacion summary::after {
+  content: "+";
+  float: right;
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--turquesa);
 }
 
-.situacion summary:focus-visible {
-  outline: 4px solid var(--acento);
-  outline-offset: 3px;
-}
+.situacion[open] summary::after { content: "–"; }
 
-.situacion-cuerpo {
-  padding: 8px 24px 20px;
-}
+.situacion[open] summary { border-bottom: 1px solid var(--borde); }
 
-.situacion-cuerpo li {
-  margin-bottom: 12px;
-}/* 19. SECCIÓN EDUCATIVA Y SIMULACRO */
-.titulo-practica {
-  margin-top: 40px;
-  font-size: 1.6rem;
-}
+.situacion-cuerpo { padding: 12px 26px 22px; }
+.situacion-cuerpo li { margin-bottom: 12px; }
 
-.simulacro {
-  margin-top: 20px;
-}
+/* 15. SIMULACRO */
+.titulo-practica { margin-top: 48px; font-size: 1.7rem; }
+.simulacro { margin-top: 20px; }
 
 .simulacro-progreso {
-  font-weight: bold;
+  font-weight: 700;
+  color: var(--turquesa);
   margin: 0 0 12px;
 }
 
 .mensaje-practica {
-  margin: 0 0 20px;
-  padding: 20px 24px;
-  background: var(--fondo);
-  border-left: 8px solid var(--borde-tarjeta);
-  border-radius: 8px;
+  margin: 0 0 22px;
+  padding: 22px 26px;
+  background: var(--superficie-2);
+  border: 1px solid var(--borde);
+  border-radius: 20px 20px 20px 6px;   /* forma de globo de chat */
   font-size: 1.2rem;
 }
 
-.simulacro-pregunta {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
+.simulacro-pregunta { font-weight: 700; margin-bottom: 8px; }
+.simulacro-respuesta { margin-top: 24px; }
+.simulacro-respuesta .boton { margin-top: 16px; }
 
-.simulacro-respuesta {
-  margin-top: 24px;
-}
-
-.simulacro-respuesta .boton {
-  margin-top: 16px;
-}/* 20. COPIAR RESUMEN */
+/* 16. COPIAR RESUMEN */
 .acciones-resumen {
   margin-top: 24px;
   padding-top: 8px;
-  border-top: 1px solid var(--borde-tarjeta);
+  border-top: 1px solid var(--borde);
 }
 
-.estado-copia {
-  margin: 12px 0 0;
-  font-weight: bold;
+.estado-copia { margin: 12px 0 0; font-weight: 700; }
+.estado-copia:empty { display: none; }
+.copia-manual { margin-top: 12px; min-height: 160px; }
+
+/* 17. ACCESIBILIDAD */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 4px solid var(--foco);
+  outline-offset: 3px;
 }
 
-.estado-copia:empty {
-  display: none;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-.copia-manual {
-  margin-top: 12px;
-  min-height: 160px;
+/* 18. CELULARES */
+@media (max-width: 600px) {
+  .seccion { padding: 56px 0; }
+  .portada { padding: 56px 0 64px; }
+  .encabezado .contenedor { justify-content: center; }
+  .pie-grid { flex-direction: column; text-align: center; }
+  .boton { width: 100%; }
+  .menu a { padding: 10px 14px; }
 }
